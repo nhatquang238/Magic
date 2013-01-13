@@ -1,0 +1,33 @@
+extends layout
+
+block content
+	.navbar
+		.navbar-inner
+			a.brand(href="#") Magic
+			ul.nav
+				li.divider-vertical 
+				li.deck
+					a(href="#")
+						i.icon-inbox(title="See deck")
+						span.badge.badge-info
+				li.dropdown
+					a.dropdown-toggle(href="#", data-toggle="dropdown")
+						i.icon-group(title="Multi-player")
+					ul.dropdown-menu
+						li: a#make-game(href="#") Make a game
+						li: a#join-game(href="#") Join a game
+						li.divider
+						li: a#invite-player(href="#") Invite a player
+
+			form.navbar-search.pull-left
+				input.card-name.search-query(type="text", placeholder="Enter your card name")
+	.battlefield
+	include modals/alert
+
+block extra-js
+	script(src="vendor/jquery-ui-1.9.1.custom.min.js", defer)
+	script(src="/socket.io/socket.io.js", defer)
+	script(src="/js/home.js", defer)
+
+block extra-css
+	link(rel="stylesheet", href="vendor/jquery-ui-1.9.1.custom.min.css")
